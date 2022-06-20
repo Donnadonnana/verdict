@@ -3,16 +3,30 @@ require("dotenv").config();
 
 // Web server config
 const PORT = process.env.PORT || 8080;
-const sassMiddleware = require("./lib/sass-middleware");
+const sassMiddleware = require("../lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
-const dbParams = require("./lib/db.js");
+const dbParams = require("../lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
+
+const addPoll = (polls) => {
+  return Pool
+    .query(
+      'INSERT INTO polls(email,title) VALUE ($1,$2) RETURNING *', [polls.email, polls.title])
+    .then((result) => {
+      console.log(result.rows[0]);
+      return result.rows[0];
+    }).catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.addPoll = addPoll;
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -35,8 +49,8 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+const usersRoutes = require("../routes/polls");
+const widgetsRoutes = require("../routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
