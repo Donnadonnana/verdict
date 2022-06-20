@@ -18,39 +18,36 @@
 
     <h1>Create a poll</h1>
 
-    <div id="user-poll">
-      <form id="user-email">
-        <div id="email-error-message" style="display:none"></div>
-        <label for="'email-text">Enter your email:</label>
-        <input type="text" name="email" id="email-text"></input>
-      </form>
-      <form id="poll-title">
-        <div id="title-error-message" style="display:none"></div>
-        <label for="poll-title">Poll title:</label>
-        <input type="text" name="title" id="title-text"></input>
-      </form>
-    </div>
-
 
 
     <div id="poll-form">
-      <form id="poll-questions">
+      <form id="poll-questions" action="/submit" method="POST">
 
-        <label for="poll-question-1">Option 1</label>
-        <input type="text" name="question" id="poll-question-1"></input>
-        <label for="poll-desc-1">Description (optional)</label>
-        <input type="text" name="description" id="poll-desc-1"></input>
+        <div id="user-poll">
+            <div id="email-error-message" style="display:none"></div>
+            <label for="'email-text">Enter your email:</label>
+            <input type="text" name="email" id="email-text" required></input>
+            <div id="title-error-message" style="display:none"></div>
+            <label for="poll-title">Poll title:</label>
+            <input type="text" name="title" id="title-text" required></input>
+        </div>
 
-        <label for="poll-question-2">Option 2</label>
-        <input type="text" name="question" id="poll-question-2"></input>
-        <label for="poll-desc-2">Description (optional)</label>
-        <input type="text" name="description" id="poll-desc-2"></input>
+        <table>
+          <label for="poll-question-1">Option 1</label>
+          <input type="text" name="question" id="poll-question-1" required></input>
+          <label for="poll-desc-1">Description (optional)</label>
+          <input type="text" name="description" id="poll-desc-1"></input>
 
-        <label for="poll-question-3">Option 3</label>
-        <input type="text" name="question" id="poll-question-3"></input>
-        <label for="poll-desc-3">Description (optional)</label>
-        <input type="text" name="description" id="poll-desc-3"></input>
+          <label for="poll-question-2">Option 2</label>
+          <input type="text" name="question" id="poll-question-2"></input>
+          <label for="poll-desc-2">Description (optional)</label>
+          <input type="text" name="description" id="poll-desc-2"></input>
 
+          <label for="poll-question-3">Option 3</label>
+          <input type="text" name="question" id="poll-question-3"></input>
+          <label for="poll-desc-3">Description (optional)</label>
+          <input type="text" name="description" id="poll-desc-3"></input>
+        </table>
         <button type="submit" class="poll-create">Create Poll!</button>
      </form>
     </div>
