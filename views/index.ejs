@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Home</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -14,7 +14,44 @@
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <main>
+
+    <h1>Create a poll</h1>
+
+
+
+    <div id="poll-form">
+      <form id="poll-questions" action="/submit" method="POST">
+
+        <div id="user-poll">
+            <div id="email-error-message" style="display:none"></div>
+            <label for="'email-text">Enter your email:</label>
+            <input type="text" name="email" id="email-text" required></input>
+            <div id="title-error-message" style="display:none"></div>
+            <label for="poll-title">Poll title:</label>
+            <input type="text" name="title" id="title-text" required></input>
+        </div>
+
+        <table>
+          <label for="poll-question-1">Option 1</label>
+          <input type="text" name="question" id="poll-question-1" required></input>
+          <label for="poll-desc-1">Description (optional)</label>
+          <input type="text" name="description" id="poll-desc-1"></input>
+
+          <label for="poll-question-2">Option 2</label>
+          <input type="text" name="question" id="poll-question-2"></input>
+          <label for="poll-desc-2">Description (optional)</label>
+          <input type="text" name="description" id="poll-desc-2"></input>
+
+          <label for="poll-question-3">Option 3</label>
+          <input type="text" name="question" id="poll-question-3"></input>
+          <label for="poll-desc-3">Description (optional)</label>
+          <input type="text" name="description" id="poll-desc-3"></input>
+        </table>
+        <button type="submit" class="poll-create">Create Poll!</button>
+     </form>
+    </div>
+  </main>
 </body>
 
 </html>
