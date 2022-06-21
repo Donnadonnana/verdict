@@ -14,20 +14,6 @@ const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
 
-const addPoll = (polls) => {
-  return Pool
-    .query(
-      'INSERT INTO polls(email,title) VALUE ($1,$2) RETURNING *', [polls.email, polls.title])
-    .then((result) => {
-      console.log(result.rows[0]);
-      return result.rows[0];
-    }).catch((err) => {
-      console.log(err.message);
-      return null;
-    });
-};
-exports.addPoll = addPoll;
-
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -49,23 +35,17 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/polls");
-const widgetsRoutes = require("./routes/widgets");
-const { Router } = require("express");
+const pollRoutes = require("./routes/polls");
+// const { Router } = require("express");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+app.use("/poll", pollRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/test", (req, res) => {
-  res.render("hi");
-});
-
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -73,3 +53,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+

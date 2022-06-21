@@ -9,7 +9,7 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.post("/create", (req, res) => {
     db.query(`SELECT * FROM polls;`)
       .then(data => {
         const polls = data.rows;
@@ -21,5 +21,14 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/answer", (req, res) => {
+    // TODO: when user submits answer
+  });
+
+  router.get("/results/:poll_id", (req, res) => {
+    // TODO: when admin checks results
+  });
+
   return router;
 };
