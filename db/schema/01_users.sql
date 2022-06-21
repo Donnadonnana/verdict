@@ -17,7 +17,6 @@ CREATE TABLE options (
 );
 
 
-
 CREATE TABLE answers (
   id SERIAL PRIMARY KEY NOT NULL,
   poll_id  INTEGER REFERENCES polls(id) ON DELETE CASCADE,
