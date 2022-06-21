@@ -109,4 +109,12 @@ div{
   display:flex;
   flex-direction: column;
   flex:1;
+  align-items: center;
+
+}
+
+#create_button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
