@@ -28,6 +28,10 @@ $(document).ready(function() {
       return;
     }
 
+    $('button').click(function() {
+      window.location.href = 'success.ejs';
+    });
+
   });
 
 });
