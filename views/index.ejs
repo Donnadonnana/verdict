@@ -6,23 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>Create Poll</title>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     type="text/css" href='/styles/poll_page.css'>
-<!-- font link -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
+  <link
   href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
   rel="stylesheet">
   <!-- css rules:font-family: 'Bungee', cursive;
-font-family: 'Source Sans Pro', sans-serif; -->
+ font-family: 'Source Sans Pro', sans-serif; -->
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -46,7 +36,6 @@ font-family: 'Source Sans Pro', sans-serif; -->
 
                   <!-- input here -->
     <div id="poll-form">
-      <form id="poll-questions" action="/poll/create" method="POST">
 
         <div id="user-poll">
           <p class="alert-user"></p>
@@ -59,43 +48,14 @@ font-family: 'Source Sans Pro', sans-serif; -->
 
         <!-- option  -->
         <div id="options-title" for="poll-question-1">Options: (minimum two)</div>
-    <div id="options_table">
 
 
   <div id="options-container">
-
   </div>
-      <!--Add option-->
-<divid=""new-option></div>
+  <div>
+      <button id="add_button">Add option</button>
+      <button  id="create_button">Create</button>
 
-      <!--Delete option-->
-      <form method="POST" action="" id="delet_a_option">
-        <i class="fa fa-trash" role="button" aria-hidden="true" id='delete_button'></i>
-      </form>
-
-
-
-
-        <!-- buttons here -->
-        <div id="buttons">
-          <!-- add new option button  -->
-
-
-       <button class="button-51" role="button" id="add_button">add new options</button>
-
-
-        <!-- delete option button  -->
-
-       <!-- <form method="POST" action="" id="delet_a_option">
-          <button class="button-51" role="button" id='delete_button'>delete a option</button>
-        </form> -->
-
-        <!-- create poll button  -->
-
-        <form method="POST" action="" id="create_a_poll"></form>
-          <button class="button-51" role="button" id="create_button">create the poll!</button>
-       </form>
-        </div>
 
   </main>
 </body>
