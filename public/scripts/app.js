@@ -2,6 +2,9 @@
 // Client facing scripts here
 
 //Error messages for missing user info on create_button: email, title, option, etc..
+
+
+
 $(document).ready(function() {
 
   $('#create_button').on('click', function(event) {
@@ -36,8 +39,16 @@ $(document).ready(function() {
 
 });
 
+//Delete option function
 $(document).ready(function() {
   $('#delete_button').on('click', function() {
     $('#poll-question-1').remove();
   });
+
+  $('#add_button').on('click', function() {
+    const newInput = document.createElement('input');
+    $('#options-container').append(newInput);
+  });
 });
+
+

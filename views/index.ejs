@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -50,38 +51,35 @@
 
                              <!-- option  -->
     <div id="options_table">
-        <table>
-          <label for="poll-question-1" class="option">Option </label>
-          <input type="text" name="question" id="poll-question-1"></input>
-          <label for="poll-desc-1">Description (optional)</label>
-          <input type="text" name="description" id="poll-desc-1"></input>
+      <label for="poll-question-1" class="option">Option</label>
+      <input class="form-control form-control-lg" id="poll-question-1" type="text"
+      placeholder="eg. What midterm project should we choose?">
 
-          <label for="poll-question-2" class="option">Option </label>
-          <input type="text" name="question" id="poll-question-2"></input>
-          <label for="poll-desc-2">Description (optional)</label>
-          <input type="text" name="description" id="poll-desc-2"></input>
+      <!--Add option-->
+<divid=""new-option></div>
 
-          <label for="poll-question-3" class="option" >Option </label>
-          <input type="text" name="question" id="poll-question-3"></input>
-          <label for="poll-desc-3">Description (optional)</label>
+      <!--Delete option-->
+      <form method="POST" action="" id="delet_a_option">
+        <i class="fa fa-trash" role="button" aria-hidden="true" id='delete_button'></i>
+      </form>
 
-          <input type="text" name="description" id="poll-desc-3"></input>
-        </table>
+
+        <div id="options-container"></div>
         </div>
 
         <!-- buttons here -->
         <div id="buttons">
           <!-- add new option button  -->
 
-       <form method="POST" action="" id="add_new_options">
+
        <button class="button-51" role="button" id="add_button">add new options</button>
-        </form>
+
 
         <!-- delete option button  -->
 
-       <form method="POST" action="" id="delet_a_option">
+       <!-- <form method="POST" action="" id="delet_a_option">
           <button class="button-51" role="button" id='delete_button'>delete a option</button>
-        </form>
+        </form> -->
 
         <!-- create poll button  -->
 
