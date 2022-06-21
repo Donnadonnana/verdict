@@ -3,6 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/create", (req, res) => {
+    console.log(req.body);
     console.log('Creating poll request!');
     const requestData = req.body;
     db.query(`INSERT INTO polls (email,title) VALUES($1,$2)RETURNING *`,[requestData.email,requestData.title])

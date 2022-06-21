@@ -27,7 +27,7 @@
 
 
     <div id="poll-form">
-      <form id="poll-questions" action="/http://localhost:8080/poll/create" method="POST">
+      <form id="poll-questions" action="/poll/create" method="POST">
 
         <div id="user-poll">
             <div id="email-error-message" style="display:none"></div>
@@ -56,13 +56,13 @@
           <label for="poll-desc-3">Description (optional)</label>
           <input type="text" name="description" id="poll-desc-3"></input>
         </table>
-        <form method="POST" action="">
+        <!-- <form method="POST" action="">
           <button type="add" class="add-option">Add</button>
         </form>
         <form method="POST" action="">
           <button type="delete" class="delete-option">Delete</button>
-        </form>
-        <button type="submit" class="poll-create">Create Poll!</button>
+        </form> -->
+        <button type="submit" value="submit" class="poll-create">Create Poll!</button>
      </form>
     </div>
 
