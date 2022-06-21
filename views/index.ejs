@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>Create Poll</title>
+  <link rel="stylesheet"
+    type="text/css" href='/styles/poll_page.css'>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -27,8 +29,8 @@
 
 
     <div id="poll-form">
-      <form id="poll-questions" action="/http://localhost:8080/poll/create" method="POST">
-        <div id="alert-user"></div>
+      <form id="poll-questions" action="/poll/create" method="POST">
+
         <div id="user-poll">
             <label for="'email-text">Enter your email:</label>
             <input type="text" name="email" id="email-text"></input>
@@ -54,13 +56,13 @@
           <label for="poll-desc-3">Description (optional)</label>
           <input type="text" name="description" id="poll-desc-3"></input>
         </table>
-        <form method="POST" action="">
-          <button type="submit" class="add-option">Add</button>
+        <!-- <form method="POST" action="">
+          <button type="add" class="add-option">Add</button>
         </form>
         <form method="POST" action="">
-          <button type="submit" class="delete-option">Delete</button>
-        </form>
-        <button type="submit" class="poll-create">Create Poll!</button>
+          <button type="delete" class="delete-option">Delete</button>
+        </form> -->
+        <button type="submit" value="submit" class="poll-create">Create Poll!</button>
      </form>
     </div>
 
@@ -74,3 +76,4 @@
 </body>
 
 </html>
+
