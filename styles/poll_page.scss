@@ -12,6 +12,13 @@ body {
   align-items: center;
 }
 
+main {
+  min-width: 600px
+
+
+}
+
+
 header {
   width: 100%;
   background-color: #266DB6;
@@ -24,7 +31,7 @@ header  a {
 
 }
 
-input {
+#email-text, #title-text {
   border-top-style: hidden;
     border-right-style: hidden;
       outline: none;
@@ -35,6 +42,41 @@ input {
   margin-bottom: 2em;
 }
 
+
+
+#options-title{
+
+  margin-top: 2em;
+}
+
+#options-container {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.option-wrapper {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+}
+
+.option-wrapper input {
+  padding: 6px 10px;
+
+}
+
+.option-title-input {
+flex: 1;
+border-radius: 6px;
+}
+
+.option-description-input {
+flex: 1;
+border-radius: 6px;
+
+}
+
 h1 {
   display: flex;
   justify-content: center;
@@ -42,6 +84,7 @@ h1 {
   font-size: 24px;
   font-family: 'Bungee', cursive !important;
 }
+
 
 p{
   display: flex;

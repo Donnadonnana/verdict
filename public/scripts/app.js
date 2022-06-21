@@ -4,40 +4,15 @@
 //Error messages for missing user info on create_button: email, title, option, etc..
 
 
+const createEmptyOption = () => {
+  // It is generally not good practice to inject plain text html into the dom for security reasons, but since this will be a static string, it's ok for now.
+  const inputHTML = `<div class="option-wrapper">
+  <input class="option-title-input" placeholder="option title">
+  <input class="option-description-input" placeholder="description">
+  </div>`;
 
-$(document).ready(function() {
-
-  $('#create_button').on('click', function(event) {
-    event.preventDefault();
-
-    $('.alert-user').slideUp();
-    if ($('#email-text').val().length <= 1) {
-      $('.alert-user').slideDown(750).text('You need an email 🙄');
-      return;
-    }
-
-    if ($('#title-text').val().length <= 1) {
-      $('.alert-user').slideDown(750).text('You have not created a title, don\'t be shy!   😎');
-      return;
-    }
-
-    if ($('#poll-question-1').val().length <= 1) {
-      $('.alert-user').slideDown(750).text('Can\'t vote without options give atleast 2!');
-      return;
-    }
-
-    if ($('#poll-question-2').val().length <= 1) {
-      $('.alert-user').slideDown(750).text('Can\'t vote without options give atleast 2!');
-      return;
-    }
-
-    $('button').click(function() {
-      window.location.href = 'success.ejs';
-    });
-
-  });
-
-});
+  $('#options-container').append(inputHTML);
+};
 
 //Delete option function
 $(document).ready(function() {
@@ -45,10 +20,9 @@ $(document).ready(function() {
     $('#poll-question-1').remove();
   });
 
-  
+
   $('#add_button').on('click', function() {
-    const newInput = document.createElement('input');
-    $('#options-container').append(newInput);
+    createEmptyOption();
   });
 });
 
