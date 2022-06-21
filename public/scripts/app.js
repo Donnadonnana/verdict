@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 // Client facing scripts here
 
-//Error messages for missing user info: email, title, option, etc..
+//Error messages for missing user info on create_button: email, title, option, etc..
 $(document).ready(function() {
 
-  $('form').on('click', 'button', function(event) {
+  $('#create_button').on('click', function(event) {
     event.preventDefault();
 
     $('.alert-user').slideUp();
@@ -34,4 +34,10 @@ $(document).ready(function() {
 
   });
 
+});
+
+$(document).ready(function() {
+  $('#delete_button').on('click', function() {
+    $('#poll-question-1').remove();
+  });
 });

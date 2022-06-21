@@ -40,6 +40,7 @@
       <form id="poll-questions" action="/poll/create" method="POST">
 
         <div id="user-poll">
+          <p class="alert-user"></p>
             <label for="'email-text">Enter your email:</label>
             <input type="text" name="email" id="email-text"></input>
             <label for="poll-title">Poll title:</label>
@@ -47,33 +48,45 @@
         </div>
     </div>
 
-    <div>
+                             <!-- option  -->
+    <div id="options_table">
         <table>
-          <label for="poll-question-1">Option 1</label>
+          <label for="poll-question-1" class="option">Option </label>
           <input type="text" name="question" id="poll-question-1"></input>
           <label for="poll-desc-1">Description (optional)</label>
           <input type="text" name="description" id="poll-desc-1"></input>
 
-          <label for="poll-question-2">Option 2</label>
+          <label for="poll-question-2" class="option">Option </label>
           <input type="text" name="question" id="poll-question-2"></input>
           <label for="poll-desc-2">Description (optional)</label>
           <input type="text" name="description" id="poll-desc-2"></input>
 
-          <label for="poll-question-3">Option 3</label>
+          <label for="poll-question-3" class="option" >Option </label>
           <input type="text" name="question" id="poll-question-3"></input>
           <label for="poll-desc-3">Description (optional)</label>
+
           <input type="text" name="description" id="poll-desc-3"></input>
         </table>
         </div>
 
         <!-- buttons here -->
         <div id="buttons">
-       <form method="POST" action="">
-       <button class="button-51" role="button">add new options</button>
+          <!-- add new option button  -->
+
+       <form method="POST" action="" id="add_new_options">
+       <button class="button-51" role="button" id="add_button">add new options</button>
         </form>
-       <form method="POST" action="">
-         <button class="button-51" role="button">delete a option</button>
-        <button class="button-51" role="button">create the poll!</button>
+
+        <!-- delete option button  -->
+
+       <form method="POST" action="" id="delet_a_option">
+          <button class="button-51" role="button" id='delete_button'>delete a option</button>
+        </form>
+
+        <!-- create poll button  -->
+
+        <form method="POST" action="" id="create_a_poll"></form>
+          <button class="button-51" role="button" id="create_button">create the poll!</button>
        </form>
         </div>
 
