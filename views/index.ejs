@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>Create Poll</title>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     type="text/css" href='/styles/poll_page.css'>
 
@@ -28,6 +35,7 @@
       <p>To create a poll, please fill the form below!</p>
 
 
+                  <!-- input here -->
     <div id="poll-form">
       <form id="poll-questions" action="/poll/create" method="POST">
 
@@ -58,23 +66,20 @@
           <label for="poll-desc-3">Description (optional)</label>
           <input type="text" name="description" id="poll-desc-3"></input>
         </table>
-        <!-- <form method="POST" action="">
-          <button type="add" class="add-option">Add</button>
+        </div>
+
+        <!-- buttons here -->
+        <div id="buttons">
+       <form method="POST" action="">
+       <button class="button-51" role="button">add new options</button>
         </form>
-        <form method="POST" action="">
-          <button type="delete" class="delete-option">Delete</button>
-        </form> -->
-        <button type="submit" value="submit" class="poll-create">Create Poll!</button>
-     </form>
-    </div>
-
-
+       <form method="POST" action="">
+         <button class="button-51" role="button">delete a option</button>
+        <button class="button-51" role="button">create the poll!</button>
+       </form>
+        </div>
 
   </main>
-       <!-- Bootstrap JS -->
-       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
