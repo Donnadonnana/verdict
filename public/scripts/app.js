@@ -45,6 +45,7 @@ $(document).ready(function() {
     $('#poll-question-1').remove();
   });
 
+  
   $('#add_button').on('click', function() {
     const newInput = document.createElement('input');
     $('#options-container').append(newInput);

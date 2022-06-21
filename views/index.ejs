@@ -15,6 +15,14 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     type="text/css" href='/styles/poll_page.css'>
+<!-- font link -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+  rel="stylesheet">
+  <!-- css rules:font-family: 'Bungee', cursive;
+font-family: 'Source Sans Pro', sans-serif; -->
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -43,9 +51,9 @@
         <div id="user-poll">
           <p class="alert-user"></p>
             <label for="'email-text">Enter your email:</label>
-            <input type="text" name="email" id="email-text"></input>
-            <label for="poll-title">Poll title:</label>
-            <input type="text" name="title" id="title-text"></input>
+            <input type="text" name="email" id="email-text"placeholder='example@email.com'></input>
+            <label for="poll-title" >Poll title:</label>
+            <input type="text" name="title" id="title-text" placeholder="eg:what midtern project do you want to do?"></input>
         </div>
     </div>
 
@@ -53,7 +61,7 @@
     <div id="options_table">
       <label for="poll-question-1" class="option">Option</label>
       <input class="form-control form-control-lg" id="poll-question-1" type="text"
-      placeholder="eg. What midterm project should we choose?">
+      placeholder="decision maker!">
 
       <!--Add option-->
 <divid=""new-option></div>
