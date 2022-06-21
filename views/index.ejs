@@ -8,11 +8,12 @@
   <title>Create Poll</title>
   <link rel="stylesheet"
     type="text/css" href='/styles/poll_page.css'>
-  <link
-  href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
-  rel="stylesheet">
-  <!-- css rules:font-family: 'Bungee', cursive;
- font-family: 'Source Sans Pro', sans-serif; -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,600&family=Ubuntu&display=swap"
+    rel="stylesheet">
+
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -42,7 +43,7 @@
             <label for="'email-text">Enter your email:</label>
             <input type="text" name="email" id="email-text"placeholder='example@email.com'></input>
             <label for="poll-title" >Poll title:</label>
-            <input type="text" name="title" id="title-text" placeholder="eg:what midtern project do you want to do?"></input>
+            <input type="text" name="title" id="title-text" placeholder="eg: what you want to eat for dinner tonight?"></input>
         </div>
     </div>
 
@@ -53,8 +54,11 @@
   <div id="options-container">
   </div>
   <div>
-      <button id="add_button">Add option</button>
-      <button  id="create_button">Create</button>
+      <button id="add_button" class="addButton">Add option</button>
+      <div id="create_button">
+        <button class="button_style" role="button">Create</button>
+      </div>
+
 
 
   </main>

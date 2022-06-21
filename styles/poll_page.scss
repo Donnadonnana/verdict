@@ -1,15 +1,12 @@
 body {
   display:flex;
-  background-color: #545149;
-  color:red;
   justify-content: center;
-  font-size: 24px;
-  // font-family:'Source Sans Pro',
-  // sans-serif;
+  font-size: 20px !important;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Ubuntu', sans-serif !important;
 }
 
 main {
@@ -21,7 +18,7 @@ main {
 
 header {
   width: 100%;
-  background-color: #266DB6;
+  background-color:burlywood;
 
 }
 
@@ -103,14 +100,73 @@ justify-content: center;
   flex-direction: row;
 }
 
-
-#create_button {
-
-}
-
 #add_button{
 
 float: right;
 }
 
 
+
+
+
+.addButton {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Bungee', cursive !important;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#create_button{
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
+}
+
+
+
+/* CSS */
+.button_style {
+  font-family: 'Bungee',cursive;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  // display:none;
+}
+
+.button_style:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button_style {
+    padding: 0.25em 0.75em;
+  }
+}
