@@ -1,5 +1,6 @@
 // load .env data into process.env
 require("dotenv").config();
+const bodyParser = require('body-parser');
 
 // Web server config
 const PORT = process.env.PORT || 8080;
@@ -21,6 +22,8 @@ app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(
   "/styles",
