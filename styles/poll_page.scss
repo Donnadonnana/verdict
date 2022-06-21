@@ -1,25 +1,86 @@
-main {
+body {
   display:flex;
-  color: #545149;
-  // background-color: #f4f1ec;
-  font-size: 24px;
-  font-family:'Source Sans Pro',
-  sans-serif;
-  flex: 1;
-    margin-left: 5%;
-    margin-right: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  justify-content: center;
+  font-size: 20px !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Ubuntu', sans-serif !important;
 }
 
-h1{
+main {
+  min-width: 600px
+
+
+}
+
+
+header {
+  width: 100%;
+  background-color:burlywood;
+
+}
+
+header  a {
+  font-size: 30px;
+  color: white !important;
+
+}
+
+#email-text, #title-text {
+  border-top-style: hidden;
+    border-right-style: hidden;
+      outline: none;
+    border-left-style: hidden;
+}
+#email-text{
+
+  margin-bottom: 2em;
+}
+
+
+
+#options-title{
+
+  margin-top: 2em;
+}
+
+#options-container {
+  padding-top: 10px;
+}
+
+.option-wrapper {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+}
+
+.option-wrapper input {
+  padding: 6px 10px;
+
+}
+
+.option-title-input {
+flex: 1;
+border-radius: 6px;
+}
+
+.option-description-input {
+flex: 1;
+border-radius: 6px;
+
+}
+
+h1 {
   display: flex;
   justify-content: center;
   padding-top: 1em;
   font-size: 24px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Bungee', cursive !important;
 }
+
 
 p{
   display: flex;
@@ -34,87 +95,78 @@ flex-direction: column;
 justify-content: center;
 }
 
-div{
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
+#options_table{
+  display: flex;
+  flex-direction: row;
 }
 
-// button{
-//   display:flex;
-//   justify-content: left;
-//     flex-direction: column;
-//   background-color: #4CAF50;
-//     border: navy;
-//     color: white;
-//     padding: 15px 32px;
-//     text-align: center;
-//     text-decoration: none;
-//     display: inline-block;
-//     font-size: 16px;
-// }
+#add_button{
+
+float: right;
+}
 
 
-/* CSS */
-.button-51 {
-  background-color: transparent;
-  border: 1px solid #266DB6;
-  box-sizing: border-box;
-  color: #00132C;
-  font-family: "Avenir Next LT W01 Bold", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  padding: 16px 23px;
-  position: relative;
-  text-decoration: none;
+
+
+
+.addButton {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Bungee', cursive !important;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
 }
 
-.button-51:hover,
-.button-51:active {
-  outline: 0;
+#create_button{
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
 }
 
-.button-51:hover {
-  background-color: transparent;
+
+
+/* CSS */
+.button_style {
+  font-family: 'Bungee',cursive;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
   cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  // display:none;
 }
 
-.button-51:before {
-  background-color: #D5EDF6;
-  content: "";
-  height: calc(100% + 3px);
-  position: absolute;
-  right: -7px;
-  top: -9px;
-  transition: background-color 300ms ease-in;
-  width: 100%;
-  z-index: -1;
-}
-
-.button-51:hover:before {
-  background-color: #6DCFF6;
+.button_style:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
 }
 
 @media (min-width: 768px) {
-  .button-51 {
-    padding: 16px 32px;
+  .button_style {
+    padding: 0.25em 0.75em;
   }
-}
-
-#buttons{
-  display:flex;
-  flex-direction: column;
-  flex:1;
-  align-items: center;
-
-}
-
-#create_button {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }

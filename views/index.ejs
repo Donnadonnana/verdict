@@ -6,15 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>Create Poll</title>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     type="text/css" href='/styles/poll_page.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,600&family=Ubuntu&display=swap"
+    rel="stylesheet">
+
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -38,55 +37,29 @@
 
                   <!-- input here -->
     <div id="poll-form">
-      <form id="poll-questions" action="/poll/create" method="POST">
 
         <div id="user-poll">
           <p class="alert-user"></p>
             <label for="'email-text">Enter your email:</label>
-            <input type="text" name="email" id="email-text"></input>
-            <label for="poll-title">Poll title:</label>
-            <input type="text" name="title" id="title-text"></input>
+            <input type="text" name="email" id="email-text"placeholder='example@email.com'></input>
+            <label for="poll-title" >Poll title:</label>
+            <input type="text" name="title" id="title-text" placeholder="eg: what you want to eat for dinner tonight?"></input>
         </div>
     </div>
 
-                             <!-- option  -->
-    <div id="options_table">
-      <label for="poll-question-1" class="option">Option</label>
-      <input class="form-control form-control-lg" id="poll-question-1" type="text"
-      placeholder="eg. What midterm project should we choose?">
-
-      <!--Add option-->
-<divid=""new-option></div>
-
-      <!--Delete option-->
-      <form method="POST" action="" id="delet_a_option">
-        <i class="fa fa-trash" role="button" aria-hidden="true" id='delete_button'></i>
-      </form>
+        <!-- option  -->
+        <div id="options-title" for="poll-question-1">Options: (minimum two)</div>
 
 
-        <div id="options-container"></div>
-        </div>
-
-        <!-- buttons here -->
-        <div id="buttons">
-          <!-- add new option button  -->
-
-
-       <button class="button-51" role="button" id="add_button">add new options</button>
+  <div id="options-container">
+  </div>
+  <div>
+      <button id="add_button" class="addButton">Add option</button>
+      <div id="create_button">
+        <button class="button_style" role="button">Create</button>
+      </div>
 
 
-        <!-- delete option button  -->
-
-       <!-- <form method="POST" action="" id="delet_a_option">
-          <button class="button-51" role="button" id='delete_button'>delete a option</button>
-        </form> -->
-
-        <!-- create poll button  -->
-
-        <form method="POST" action="" id="create_a_poll"></form>
-          <button class="button-51" role="button" id="create_button">create the poll!</button>
-       </form>
-        </div>
 
   </main>
 </body>
