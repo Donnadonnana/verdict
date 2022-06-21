@@ -28,26 +28,24 @@
 
     <div id="poll-form">
       <form id="poll-questions" action="/http://localhost:8080/poll/create" method="POST">
-
+        <div id="alert-user"></div>
         <div id="user-poll">
-            <div id="email-error-message" style="display:none"></div>
             <label for="'email-text">Enter your email:</label>
-            <input type="text" name="email" id="email-text" required></input>
-            <div id="title-error-message" style="display:none"></div>
+            <input type="text" name="email" id="email-text"></input>
             <label for="poll-title">Poll title:</label>
-            <input type="text" name="title" id="title-text" required></input>
+            <input type="text" name="title" id="title-text"></input>
         </div>
     </div>
 
     <div>
         <table>
           <label for="poll-question-1">Option 1</label>
-          <input type="text" name="question" id="poll-question-1" required></input>
+          <input type="text" name="question" id="poll-question-1"></input>
           <label for="poll-desc-1">Description (optional)</label>
           <input type="text" name="description" id="poll-desc-1"></input>
 
           <label for="poll-question-2">Option 2</label>
-          <input type="text" name="question" id="poll-question-2" required></input>
+          <input type="text" name="question" id="poll-question-2"></input>
           <label for="poll-desc-2">Description (optional)</label>
           <input type="text" name="description" id="poll-desc-2"></input>
 
@@ -57,10 +55,10 @@
           <input type="text" name="description" id="poll-desc-3"></input>
         </table>
         <form method="POST" action="">
-          <button type="add" class="add-option">Add</button>
+          <button type="submit" class="add-option">Add</button>
         </form>
         <form method="POST" action="">
-          <button type="delete" class="delete-option">Delete</button>
+          <button type="submit" class="delete-option">Delete</button>
         </form>
         <button type="submit" class="poll-create">Create Poll!</button>
      </form>
