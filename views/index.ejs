@@ -41,6 +41,7 @@
       <form id="poll-questions" action="/poll/create" method="POST">
 
         <div id="user-poll">
+          <p class="alert-user"></p>
             <label for="'email-text">Enter your email:</label>
             <input type="text" name="email" id="email-text"></input>
             <label for="poll-title">Poll title:</label>
@@ -54,36 +55,25 @@
       <input class="form-control form-control-lg" id="poll-question-1" type="text"
       placeholder="eg. What midterm project should we choose?">
 
+      <!--Add option-->
+<divid=""new-option></div>
+
+      <!--Delete option-->
       <form method="POST" action="" id="delet_a_option">
         <i class="fa fa-trash" role="button" aria-hidden="true" id='delete_button'></i>
       </form>
 
-        <!-- <table>
-          <label for="poll-question-1" class="option">Option </label>
-          <input type="text" name="question" id="poll-question-1"></input>
-          <label for="poll-desc-1">Description (optional)</label>
-          <input type="text" name="description" id="poll-desc-1"></input>
 
-          <label for="poll-question-2" class="option">Option </label>
-          <input type="text" name="question" id="poll-question-2"></input>
-          <label for="poll-desc-2">Description (optional)</label>
-          <input type="text" name="description" id="poll-desc-2"></input>
-
-          <label for="poll-question-3" class="option" >Option </label>
-          <input type="text" name="question" id="poll-question-3"></input>
-          <label for="poll-desc-3">Description (optional)</label>
-
-          <input type="text" name="description" id="poll-desc-3"></input>
-        </table> -->
+        <div id="options-container"></div>
         </div>
 
         <!-- buttons here -->
         <div id="buttons">
           <!-- add new option button  -->
 
-       <form method="POST" action="" id="add_new_options">
+
        <button class="button-51" role="button" id="add_button">add new options</button>
-        </form>
+
 
         <!-- delete option button  -->
 
