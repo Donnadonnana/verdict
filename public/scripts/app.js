@@ -20,11 +20,49 @@ const createEmptyOption = () => {
   $('#options-container').append(inputHTML);
 };
 
+const submitPoll = () => {
+  const email = $('#email-text').val();
+  const title = $('#title-text').val();
+
+  let options = [];
+
+  document.querySelectorAll('.option-wrapper').forEach((option) => {
+    const optionData = {};
+    const titleText = option.querySelector('.option-title-input').value;
+    const descriptionText = option.querySelector('.option-description-input').value;
+
+    optionData.title = titleText;
+    optionData.description = descriptionText || null;
+    options.push(optionData);
+
+  });
+
+  const data = {
+    email,
+    title,
+    options
+  };
+
+  $.ajax({
+    method: "POST",
+    url: "/poll/create",
+    data
+  });
+};
+
 //Delete option function
 $(document).ready(function() {
   $('#add_button').on('click', function() {
     createEmptyOption();
   });
+
+  $('#create-btn').on('click', function() {
+    submitPoll();
+  });
+
+  createEmptyOption();
+  createEmptyOption();
+
 });
 
 
