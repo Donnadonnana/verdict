@@ -2,6 +2,10 @@
 // Client facing scripts here
 
 
+const validateEmail = (email) => {
+  const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return res.test(String(email).toLowerCase());
+}
 
 // We define this handleDelete function at a global scope, when the page loads, it will have this function available on the entire page, this is for the delete option button onClick handler (in inputHTML const in createEmptyOption)
 const handleDelete = (btn) => {
@@ -24,11 +28,36 @@ const createEmptyOption = () => {
   $('#options-container').append(inputHTML);
 };
 
+const disableCreateBtn = () => {
+  $('#create_button').css('opacity', '0.5');
+  $('#create_button').css('pointer-events', 'none');
+};
+
+const enableCreateBtn = () => {
+  $('#create_button').css('opacity', '1');
+  $('#create_button').css('pointer-events', 'all');
+};
+
+const validateForm = () => {
+  const email = $('#email-text').val();
+  const title = $('#title-text').val();
+
+  const isInvalid = !email || !title;
+  if (isInvalid) {
+    disableCreateBtn();
+  } else {
+    enableCreateBtn();
+  }
+};
+
 const submitPoll = () => {
   // get the text values of the email and title input elements
   const email = $('#email-text').val();
   const title = $('#title-text').val();
 
+  if (!validateEmail(email)) {
+    return alert('invalid email');
+  }
 
   // start an empty options array which we will populate in the following code, we want to gather all the options information to be sent in the create poll request later
   let options = [];
@@ -87,9 +116,19 @@ $(document).ready(function () {
   });
 
 
+  $('#email-text').on('keyup', function () {
+    validateForm();
+  });
+
+  $('#title-text').on('keyup', function () {
+    validateForm();
+  });
+
+
   // We want to add 2 empty options when the page starts, because it doesn't really make sense to have no options available on page load (UX)
   createEmptyOption();
   createEmptyOption();
+  disableCreateBtn();
 
 });
 
