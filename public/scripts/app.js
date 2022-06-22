@@ -63,7 +63,10 @@ const submitPoll = () => {
   $.ajax({
     method: "POST",
     url: "/poll/create",
-    data
+    data,
+    success: (data) => {
+      window.location = `http://localhost:8080/success/${data.pollID}`;
+    }
   });
 };
 
