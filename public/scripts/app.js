@@ -5,7 +5,7 @@
 const validateEmail = (email) => {
   const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return res.test(String(email).toLowerCase());
-}
+};
 
 // We define this handleDelete function at a global scope, when the page loads, it will have this function available on the entire page, this is for the delete option button onClick handler (in inputHTML const in createEmptyOption)
 const handleDelete = (btn) => {
@@ -75,6 +75,7 @@ const submitPoll = () => {
     // store the input values into the empty object, and if description doesn't exist, set it to null
     optionData.title = titleText;
     optionData.description = descriptionText || null;
+    console.log(optionData);
 
     // push the optionData we created above into the options array, this will happen on every loop of the options
     options.push(optionData);
@@ -92,7 +93,7 @@ const submitPoll = () => {
   $.ajax({
     method: "POST",
     url: "/poll/create",
-    data,
+    data: data,
     success: (data) => {
       window.location = `http://localhost:8080/success/${data.pollID}`;
     }
