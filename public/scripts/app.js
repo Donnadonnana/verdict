@@ -96,6 +96,7 @@ const submitPoll = () => {
     // store the input values into the empty object, and if description doesn't exist, set it to null
     optionData.title = titleText;
     optionData.description = descriptionText || null;
+    console.log(optionData);
 
     // push the optionData we created above into the options array, this will happen on every loop of the options
     options.push(optionData);
@@ -113,7 +114,7 @@ const submitPoll = () => {
   $.ajax({
     method: "POST",
     url: "/poll/create",
-    data,
+    data: data,
     success: (data) => {
       window.location = `http://localhost:8080/success/${data.pollID}`;
     }
