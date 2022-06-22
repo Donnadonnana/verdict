@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/success", (req, res) => {
+app.get("/success/:id", (req, res) => {
   res.render("success");
 });
 

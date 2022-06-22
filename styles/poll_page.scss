@@ -48,13 +48,11 @@ header  a {
 
 #options-container {
   padding-top: 10px;
+  padding-left: 20px;
 }
 
 .option-wrapper {
   margin-bottom: 1em;
-  display: flex;
-  flex-direction: row;
-  gap: 36px;
 }
 
 .option-wrapper input {
@@ -156,7 +154,8 @@ float: right;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  // display:none;
+  // opacity: 0.5;
+  // pointer-events: none;
 }
 
 .button_style:active {
