@@ -31,7 +31,9 @@ module.exports = (db) => {
             from: "Verdict App <postmaster@sandboxde358f6826584f1c8c443475e8a96839.mailgun.org>",
             to: [requestData.email],
             subject: "You just made a new poll!",
-            text: `${requestData.title} poll created!`,
+            text: `${requestData.title} poll created!
+            share link : http://localhost:8080/answer/${pollID}
+            result link: http://localhost:8080/result/${pollID}`,
           })
           .then(msg => console.log(msg)) // logs response data
           .catch(err => console.log(err)); // logs any error`;
