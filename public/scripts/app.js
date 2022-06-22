@@ -3,6 +3,10 @@
 
 //Error messages for missing user info on create_button: email, title, option, etc..
 
+const handleDelete = (btn) => {
+  btn.parentNode.remove();
+};
+
 
 const createEmptyOption = () => {
   // It is generally not good practice to inject plain text html into the dom for security reasons, but since this will be a static string, it's ok for now.
@@ -10,7 +14,7 @@ const createEmptyOption = () => {
   <input class="option-title-input" placeholder="option title">
   <input class="option-description-input" placeholder="description">
 
-  <button class="delete-btn">Delete</button>
+  <button onclick="handleDelete(this)" class="delete-btn">Delete</button>
   </li>`;
 
   $('#options-container').append(inputHTML);
@@ -18,11 +22,6 @@ const createEmptyOption = () => {
 
 //Delete option function
 $(document).ready(function() {
-  $('#delete_button').on('click', function() {
-    $('#poll-question-1').remove();
-  });
-
-
   $('#add_button').on('click', function() {
     createEmptyOption();
   });
