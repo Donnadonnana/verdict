@@ -39,13 +39,20 @@
 
 <main>
   <h1>You have successfully created a poll!</h1>
-
+  <h2>your poll was sent to your email.</h2>
   <div id="links">
     <p>Check out the results here:</p>
     <p>Share this link with your friends:</p>
     </div>
 
+    <!--Empty div for links-->
     <div id="link-buttons">
+
+      <button id="links-btn" type=“submit” class="button">
+        <a href="/result/<%= pollID %>">Results</a></button>
+      <button id="links-btn" type=“submit” class="button">
+        <a href="/answer/<%= pollID %>">Share</a></button>
+
     </div>
 
 </main>

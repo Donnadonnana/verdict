@@ -53,8 +53,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/success/:id", (req, res) => {
-  res.render("success");
+app.get("/success/:pollID", (req, res) => {
+const pollID = req.params.pollID;
+
+const templateVars = {
+  pollID
+}
+
+  res.render("success", templateVars);
 });
 
 
@@ -65,7 +71,7 @@ app.get("/result/:id", (req, res) => {
 
 
 // The page the user re-orders and submits
-app.get("/answer/:id", (req, res) => {
+app.get("/answer/:pollID", (req, res) => {
   res.render("answers");
 });
 
