@@ -41,3 +41,42 @@ p {
   font-family: 'Ubuntu', sans-serif !important;
   font-size: 20px;
 }
+
+h2 {
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#links-btn {
+  font-family: 'Bungee';
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #333333;
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  border: 3px solid;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  margin-left: 20%;
+  margin-right: 20%;;
+}
+
+#links-btn:hover {
+  opacity: 0.8;
+}
+
+#links-btn:focus {
+  outline: none;
+}
+
+#link-buttons {
+  display: flex;
+  justify-content: center;
+}

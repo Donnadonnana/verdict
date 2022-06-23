@@ -13,7 +13,7 @@ module.exports = (db) => {
       username: 'api',
       key: process.env.MAILGUN_API_KEY,
     });
-
+    console.log(process.env.MAILGUN_API_KEY);
     // Create poll row, with email and title from the form on the front end
     db.query(`INSERT INTO polls (email,title) VALUES($1,$2)RETURNING *`,[requestData.email,requestData.title])
       .then(data => {
@@ -27,8 +27,8 @@ module.exports = (db) => {
 
         // TODO: send 2 links to the provided email, one for sharing with friends, one for seeing results
         mg.messages
-          .create('sandboxde358f6826584f1c8c443475e8a96839.mailgun.org', {
-            from: "Verdict App <postmaster@sandboxde358f6826584f1c8c443475e8a96839.mailgun.org>",
+          .create('sandbox0c10c0578c284d6881df9499aff9bf18.mailgun.org', {
+            from: "Verdict App <postmaster@sandbox0c10c0578c284d6881df9499aff9bf18.mailgun.org>",
             to: [requestData.email],
             subject: "You just made a new poll!",
             text: `${requestData.title} poll created!
