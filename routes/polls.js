@@ -51,8 +51,23 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/answer", (req, res) => {
-    // TODO: when user submits answer
+
+  // after the FE user clicks, submit poll answers
+  // {
+  //  pollID: number,
+  //  answers: [1,4,2,3] ids of the options
+  // }
+  router.post("/answers", (req, res) => {
+    const pollID = req.body.pollID;
+    const optionIDs = req.body.answers;
+    optionIDs.forEach(async (optionID, index) => {
+      const rank = index + 1;
+
+      // Insert answers and their rank in the db
+      await db.query(`INSERT INTO answers (poll_id,option_id,rank) VALUES($1,$2,$3)RETURNING *`, [pollID,optionID,rank]);
+    });
+
+    res.send();
   });
 
   router.get("/results/:poll_id", (req, res) => {
