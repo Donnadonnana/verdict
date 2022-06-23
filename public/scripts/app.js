@@ -75,9 +75,13 @@ const submitPoll = () => {
   // get the text values of the email and title input elements
   const email = $('#email-text').val();
   const title = $('#title-text').val();
+  const error = $('.alert-user');
 
   if (!validateEmail(email)) {
-    return alert('invalid email');
+    $(error).show();
+    $(error).text("Enter a valid email!");
+    return false;
+    // return alert('invalid email');
   }
 
   // start an empty options array which we will populate in the following code, we want to gather all the options information to be sent in the create poll request later
