@@ -53,26 +53,24 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/success/:id", (req, res) => {
-  res.render("success");
+app.get("/success/:pollID", (req, res) => {
+  const pollID = req.params.pollID;
+  const templateVars = { pollID };
+  res.render("success", templateVars);
 });
 
 
 // The page we go to get all results
-app.get("/result/:id", (req, res) => {
+app.get("/result/:pollID", (req, res) => {
   res.render("results");
 });
 
 
 // The page the user re-orders and submits
-app.get("/answer/:id", (req, res) => {
+app.get("/answer/:pollID", (req, res) => {
   res.render("answers");
 });
 
-
-// app.get("/answers", (req, res) => {
-//   res.render("answers");
-// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

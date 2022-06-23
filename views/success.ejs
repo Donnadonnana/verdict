@@ -42,11 +42,11 @@
   <div id="links">
     <p>Check out the results here:</p>
     <button class="button" type="submit">
-      <a class="btn" href="/result" role="button">Results</a>
+      <a class="btn" href="/result/<%= pollID %>" role="button">Results</a>
     </button>
-    <p>Share this link with your friends:</p>
+    <p>Share this link with your friends <%= pollID %>:</p>
     <button class="button" type="submit">
-      <a class="btn" href="/answers" role="button">Share</a>
+      <a class="btn" href="/answers/<%= pollID %>" role="button">Share</a>
     </button>
 
   </div>
