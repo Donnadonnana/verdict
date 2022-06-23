@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 // Client facing scripts here
 
@@ -5,12 +7,18 @@
 const validateEmail = (email) => {
   const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return res.test(String(email).toLowerCase());
-}
+};
 
 // We define this handleDelete function at a global scope, when the page loads, it will have this function available on the entire page, this is for the delete option button onClick handler (in inputHTML const in createEmptyOption)
 const handleDelete = (btn) => {
   // we pass a reference to the button component in the parameters, we then access it's parent element, which is the li element, and call a remove() on it to remove it from the DOM
   btn.parentNode.remove();
+  const liLength = $('#options-container li').length;
+  if (liLength < 2) {
+    disableCreateBtn();
+  } else {
+    enableCreateBtn();
+  }
 };
 
 
@@ -41,8 +49,21 @@ const enableCreateBtn = () => {
 const validateForm = () => {
   const email = $('#email-text').val();
   const title = $('#title-text').val();
+  const optionChildren = $('#options-container').children();
+  console.log($(optionChildren).children());
+  let isValidInput = true;
 
-  const isInvalid = !email || !title;
+  for (let i = 0; i < optionChildren.length; i++) {
+    const element = optionChildren[i];
+    const listChildren = $(element).children();
+    const inputValue = $(listChildren[0]).val();
+    if (!inputValue) {
+      isValidInput = false;
+    }
+  }
+
+
+  const isInvalid = !email || !title || !isValidInput;
   if (isInvalid) {
     disableCreateBtn();
   } else {
@@ -75,6 +96,7 @@ const submitPoll = () => {
     // store the input values into the empty object, and if description doesn't exist, set it to null
     optionData.title = titleText;
     optionData.description = descriptionText || null;
+    console.log(optionData);
 
     // push the optionData we created above into the options array, this will happen on every loop of the options
     options.push(optionData);
@@ -92,7 +114,7 @@ const submitPoll = () => {
   $.ajax({
     method: "POST",
     url: "/poll/create",
-    data,
+    data: data,
     success: (data) => {
       window.location = `http://localhost:8080/success/${data.pollID}`;
     }
@@ -101,26 +123,30 @@ const submitPoll = () => {
 
 
 // When the page has rendered, we initialize listeners to track clicks on specific buttons (add option, create poll)
-$(document).ready(function () {
+$(document).ready(function() {
 
   // add option button listener
-  $('#add_button').on('click', function () {
+  $('#add_button').on('click', function() {
     //call the createEmptyOption function every time we click the add button
     createEmptyOption();
   });
 
   // create poll button listener
-  $('#create-btn').on('click', function () {
+  $('#create-btn').on('click', function() {
     // Call the submit poll function every time we click the create button
     submitPoll();
   });
 
 
-  $('#email-text').on('keyup', function () {
+  $('#email-text').on('keyup', function() {
     validateForm();
   });
 
-  $('#title-text').on('keyup', function () {
+  $('#title-text').on('keyup', function() {
+    validateForm();
+  });
+
+  $('#options-container').on('keyup', function() {
     validateForm();
   });
 

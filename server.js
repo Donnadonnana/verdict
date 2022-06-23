@@ -57,6 +57,10 @@ app.get("/success/:id", (req, res) => {
   res.render("success");
 });
 
+app.get("/results", (req, res) => {
+  res.render("results");
+});
+
 
 // app.get("/answers", (req, res) => {
 //   res.render("answers");
