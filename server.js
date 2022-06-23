@@ -57,8 +57,16 @@ app.get("/success/:id", (req, res) => {
   res.render("success");
 });
 
-app.get("/results", (req, res) => {
+
+// The page we go to get all results
+app.get("/result/:id", (req, res) => {
   res.render("results");
+});
+
+
+// The page the user re-orders and submits
+app.get("/answer/:id", (req, res) => {
+  res.render("answers");
 });
 
 
