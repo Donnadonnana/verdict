@@ -54,11 +54,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/success/:pollID", (req, res) => {
-const pollID = req.params.pollID;
+ const pollID = req.params.pollID;
 
-const templateVars = {
-  pollID
-}
+ const templateVars = {
+   pollID
+  }
 
   res.render("success", templateVars);
 });

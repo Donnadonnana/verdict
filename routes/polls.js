@@ -26,9 +26,11 @@ module.exports = (db) => {
         });
 
         // TODO: send 2 links to the provided email, one for sharing with friends, one for seeing results
+        const mgAdress = process.env.MAILGUN_API_KEY_ADDRESS;
+        console.log(mgAdress);
         mg.messages
-          .create('sandbox0c10c0578c284d6881df9499aff9bf18.mailgun.org', {
-            from: "Verdict App <postmaster@sandbox0c10c0578c284d6881df9499aff9bf18.mailgun.org>",
+          .create(mgAdress, {
+            from: `Verdict App <postmaster@${mgAdress}>`,
             to: [requestData.email],
             subject: "You just made a new poll!",
             text: `${requestData.title} poll created!
