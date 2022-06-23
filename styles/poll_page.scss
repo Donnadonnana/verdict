@@ -14,12 +14,26 @@ main {
 
 }
 
+.alert-user {
+  outline: 2px solid #B01515;
+  font-family: 'Bungee', cursive;
+  font-size: 20px;
+  background-color: #FEBDBD;
+  width: 40%;
+  height: 30px;
+  color: #B01515;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+}
+
 
 #email-text, #title-text {
   border-top-style: hidden;
-    border-right-style: hidden;
-      outline: none;
-    border-left-style: hidden;
+  border-right-style: hidden;
+  outline: none;
+  border-left-style: hidden;
 }
 #email-text{
 
