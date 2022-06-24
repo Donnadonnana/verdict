@@ -62,6 +62,8 @@ const validateForm = () => {
     }
   }
 
+  //add if condition for null description => if desc = null push only title and options
+
 
   const isInvalid = !email || !title || !isValidInput;
   if (isInvalid) {
