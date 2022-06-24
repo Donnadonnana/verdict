@@ -23,19 +23,27 @@ h1 {
 
 #links {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 10%;
-  padding-top: 5%;
-  padding-right: 10%;
+  text-align: center;
+  justify-content: space-around;
+  margin: 10%;
 }
 
-#link-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+#link-left {
 
 }
+
+#link-right {
+
+}
+
+// #link-buttons {
+//   position: absolute;
+//   margin-top: 10%;
+// }
+
+// #links-btn {
+//   margin: 10% !important;
+// }
 
 p {
   font-family: 'Ubuntu', sans-serif !important;
@@ -64,8 +72,7 @@ h2 {
   touch-action: manipulation;
   border: 3px solid;
   box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  margin-left: 20%;
-  margin-right: 20%;;
+
 }
 
 #links-btn:hover {
