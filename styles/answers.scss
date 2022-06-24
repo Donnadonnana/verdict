@@ -1,0 +1,24 @@
+#user-answers {
+margin-top: 10%;
+margin-bottom: 10%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#user-answers p {
+  border: 2px black solid;
+  border-radius: 10px;
+  padding-bottom: 5%;
+  width: 600px;
+  height: 70px;
+
+}
+
+h3 {
+ font-family: 'Bungee', cursive !important;
+}
+
+#create-btn {
+}
