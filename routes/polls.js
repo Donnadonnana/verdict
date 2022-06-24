@@ -15,7 +15,7 @@ module.exports = (db) => {
     });
     console.log(process.env.MAILGUN_API_KEY);
     // Create poll row, with email and title from the form on the front end
-    db.query(`INSERT INTO polls (email,title) VALUES($1,$2)RETURNING *`,[requestData.email,requestData.title])
+    db.query(`INSERT INTO polls (email,title) VALUES($1,$2)RETURNING *`, [requestData.email, requestData.title])
       .then(data => {
         const newPoll = data.rows[0];
         const pollID = newPoll.id;
@@ -62,20 +62,73 @@ module.exports = (db) => {
   router.post("/answers", (req, res) => {
     const pollID = req.body.pollID;
     const optionIDs = req.body.answers;
-    optionIDs.forEach(async (optionID, index) => {
+    optionIDs.forEach(async(optionID, index) => {
       const rank = index + 1;
 
       // Insert answers and their rank in the db
-      await db.query(`INSERT INTO answers (poll_id,option_id,rank) VALUES($1,$2,$3)RETURNING *`, [pollID,optionID,rank]);
+      await db.query(`INSERT INTO answers (poll_id,option_id,rank) VALUES($1,$2,$3)RETURNING *`, [pollID, optionID, rank]);
     });
 
     res.send();
   });
 
+
+  // 1. get number of options from poll id
+  // 2. get all answers with poll id
+  // 3. for every answer, add score based on rank of answer
+  // 4. after adding all answer ranks, we will have final ranks
+  // 5. return final array of ranks with options data (title, description)
   router.get("/results/:poll_id", (req, res) => {
+    const pollID = req.params.poll_id;
     // TODO: when admin checks results
+    console.log(pollID);
+    db.query(`SELECT * FROM options WHERE poll_id = $1`, [pollID]).then((data) => {
+      const options = data.rows;
+      const n = options.length;
+
+      const optionPoints = {};
+      
+      options.forEach((option) => {
+        optionPoints[option.id] = 0;
+      });
+
+
+      db.query(`SELECT * FROM answers WHERE poll_id = $1`, [pollID]).then((data) => {
+
+        const allAnswers = data.rows;
+
+
+        allAnswers.forEach((answer) => {
+          const optionID = answer.option_id;
+          const rank = answer.rank;
+
+          const points = n - rank;
+          optionPoints[optionID] += points;
+
+        });
+
+
+        // Get all answers where poll_id = pollID;
+        // each answer has a option_id, and a rank
+        // optionPoints[option_id] += n - rank;
+        console.log(optionPoints);
+        // res.render('results', optionPoints);
+      });
+
+
+
+
+
+    });
   });
 
-  return router;
-};
 
+
+
+
+
+
+
+  return router;
+
+};
