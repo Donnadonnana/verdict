@@ -18,7 +18,10 @@ $(document).ready(function() {
 
 const addOptionElement = (option) => {
   console.log(option);
-  const inputHTML = `<div>option:${option.title}</div>
-  <div>description:${option.description}</div>`;
+
+  const inputHTML = `<div id="option-title"><b>Option:</b>${option.title}
+  <div id="option-description"><b>Description:</b> ${option.description}</div>
+  </div>`;
+
   $('#user-answers').append(inputHTML);
 };
