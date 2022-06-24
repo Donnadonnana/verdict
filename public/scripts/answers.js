@@ -22,6 +22,3 @@ const addOptionElement = (option) => {
   <div>description:${option.description}</div>`;
   $('#user-answers').append(inputHTML);
 };
-
-
-
