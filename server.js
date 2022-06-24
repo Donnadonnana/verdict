@@ -56,6 +56,7 @@ app.get("/", (req, res) => {
 app.get("/success/:pollID", (req, res) => {
   const pollID = req.params.pollID;
 
+
   const templateVars = {
     pollID
   };
@@ -72,13 +73,20 @@ app.get("/result/:id", (req, res) => {
 
 // The page the user re-orders and submits
 app.get("/answer/:pollID", (req, res) => {
+
   res.render("answers");
 });
 
+app.get('/getoptions/:pollID', (req, res) => {
+  const pollID = req.params.pollID;
+  console.log(pollID);
+  db.query('SELECT * FROM options WHERE poll_id = $1', [pollID]).then((data) => {
 
-// app.get("/answers", (req, res) => {
-//   res.render("answers");
-// });
+    const options = data.rows;
+    res.send(options);
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
