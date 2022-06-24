@@ -87,7 +87,7 @@ module.exports = (db) => {
       const n = options.length;
 
       const optionPoints = {};
-      
+
       options.forEach((option) => {
         optionPoints[option.id] = 0;
       });
