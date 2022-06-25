@@ -23,6 +23,9 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/answers.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
   </head>
 
 
@@ -35,13 +38,13 @@
 
 
   <!--Empty Div for answers-->
-  <div id="user-answers" draggable="true"></div>
+  <ul id="user-answers"></ul>
 
 
 
     <div class="confirm-btn">
-      <button id="create-btn" class="button_style" role="button">
-        <a href="/submit">Confirm</a></button>
+      <button id="confirm-btn" class="button_style" role="button">
+       Confirm</button>
         </div>
     </div>
   </main>

@@ -7,7 +7,13 @@ justify-content: center;
 align-items: center;
 }
 
-#option-title {
+.option-title {
+  font-family: 'Bungee', cursive !important;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.option {
   background-color: #f5f5f5;
   border: 2px #fbfbfb solid;
   border-radius: 10px;
@@ -26,6 +32,9 @@ align-items: center;
  margin-top: 10%;
 }
 
+.option-description {
+  color: salmon;
+}
 
 
 [draggable] {

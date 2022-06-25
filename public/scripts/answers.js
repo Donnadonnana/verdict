@@ -1,9 +1,7 @@
-// const dbParams = require("../../lib/db");
 
 $(document).ready(function() {
   const currentURL = window.location.href;
   const pollID = currentURL.split('/')[currentURL.split('/').length - 1];
-  // alert(pollID);
   $.ajax({
     method: "GET",
     url: `/getoptions/${pollID}`,
@@ -11,20 +9,37 @@ $(document).ready(function() {
       data.forEach((option) => {
         addOptionElement(option)
       });
-
+      $('#user-answers').sortable();
     }
   });
+
+
+  $("#confirm-btn").on('click', () => {
+
+    const answers = [];
+
+    document.querySelectorAll('.option').forEach((el) => {
+      const optionId = el.getAttribute('optionID');
+      answers.push(optionId);t6y
+    });
+
+    // TODO: send array via ajax to POST answer
+
+  });
+
 });
 
 const addOptionElement = (option) => {
-  console.log(option);
-
   const inputHTML = `
-  <div id="option-title" draggable="true">${option.title}
-  <div id="option-description" draggable="true"> ${option.description}</div>
-
-  </div>`;
+  <li class="option" optionID="${option.id}">
+  <div class="option-title">
+    ${option.title}
+  </div>
+    <div class="option-description"> ${option.description}</div>
+  </li>`;
 
   $('#user-answers').append(inputHTML);
+
+
 };
 
