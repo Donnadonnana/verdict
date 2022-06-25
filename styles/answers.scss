@@ -22,7 +22,7 @@ align-items: center;
 
 #title-page {
  font-family: 'Bungee', cursive !important;
- font-size: 30px;
+ font-size: 35px;
  margin-top: 10%;
 }
 
@@ -32,15 +32,15 @@ align-items: center;
   user-select: none;
 }
 
-
-#create-btn {
-
+.confirm-btn {
+  text-align: center;
 }
 
 h4 {
   font-family: 'Bungee', cursive !important;
   font-size: 30px;
   margin-top: 10%;
+  padding-top: 2em;
 }
 
 
