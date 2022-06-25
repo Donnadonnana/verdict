@@ -28,6 +28,3 @@ const addOptionElement = (option) => {
   $('#user-answers').append(inputHTML);
 };
 
-
-
-
