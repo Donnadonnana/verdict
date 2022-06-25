@@ -88,6 +88,10 @@ app.get('/getoptions/:pollID', (req, res) => {
 });
 
 
+app.get('/submit', (req, res) => {
+  res.render('confirm');
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
