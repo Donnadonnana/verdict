@@ -20,11 +20,11 @@ $(document).ready(function() {
 
     document.querySelectorAll('.option').forEach((el) => {
       const optionId = el.getAttribute('optionID');
-      answers.push(optionId);t6y
+      answers.push(optionId);
     });
 
     // TODO: send array via ajax to POST answer
-
+    console.log(answers);
   });
 
 });
