@@ -62,14 +62,49 @@ module.exports = (db) => {
   router.post("/answers", (req, res) => {
     const pollID = req.body.pollID;
     const optionIDs = req.body.answers;
-    optionIDs.forEach(async(optionID, index) => {
-      const rank = index + 1;
 
-      // Insert answers and their rank in the db
-      await db.query(`INSERT INTO answers (poll_id,option_id,rank) VALUES($1,$2,$3)RETURNING *`, [pollID, optionID, rank]);
-    });
+    const mailgun = new Mailgun(formData);
 
-    res.send();
+    // Find the email for the post in the db
+    // const email = XXX;
+
+    db.query(`SELECT * FROM polls WHERE id = $1`, [pollID])
+      .then(data => {
+        const newPoll = data.rows[0];
+        const email = newPoll.email;
+
+        const mg = mailgun.client({
+          username: 'api',
+          key: process.env.MAILGUN_API_KEY,
+        });
+        const mgAdress = process.env.MAILGUN_API_KEY_ADDRESS;
+
+        mg.messages
+          .create(mgAdress, {
+            from: `Verdict App <postmaster@${mgAdress}>`,
+            to: [email],
+            subject: "Poll was answered!",
+            text: `Someone answered your poll! please check the newest result!
+            result link: http://localhost:8080/result/${pollID}`,
+          })
+          .then(msg => console.log(msg)) // logs response data
+          .catch(err => console.log(err)); // logs any error`;
+
+
+
+        optionIDs.forEach(async(optionID, index) => {
+          const rank = index + 1;
+
+          // Insert answers and their rank in the db
+          await db.query(`INSERT INTO answers (poll_id,option_id,rank) VALUES($1,$2,$3)RETURNING *`, [pollID, optionID, rank]);
+        });
+
+        res.send();
+      });
+
+
+
+
   });
 
 
