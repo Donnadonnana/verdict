@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 $(document).ready(function() {
   const currentURL = window.location.href;
@@ -7,7 +8,7 @@ $(document).ready(function() {
     url: `/getoptions/${pollID}`,
     success: (data) => {
       data.forEach((option) => {
-        addOptionElement(option)
+        addOptionElement(option);
       });
       $('#user-answers').sortable();
     }
@@ -20,12 +21,20 @@ $(document).ready(function() {
 
     document.querySelectorAll('.option').forEach((el) => {
       const optionId = el.getAttribute('optionID');
-      answers.push(optionId);t6y
+      answers.push(optionId);
     });
 
     // TODO: send array via ajax to POST answer
 
   });
+
+  $("#confirm-btn").on('click', () => {
+
+    window.location.href = 'http://localhost:8080/submit';
+
+  });
+
+
 
 });
 

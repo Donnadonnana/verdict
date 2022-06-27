@@ -11,9 +11,9 @@ module.exports = (db) => {
 
     const mg = mailgun.client({
       username: 'api',
-      key: process.env.MAILGUN_API_KEY,
+      key: process.env.MAILGUN_API_KEY_ADDRESS,
     });
-    console.log(process.env.MAILGUN_API_KEY);
+    console.log(process.env.MAILGUN_API_KEY_ADDRESS);
     // Create poll row, with email and title from the form on the front end
     db.query(`INSERT INTO polls (email,title) VALUES($1,$2)RETURNING *`, [requestData.email, requestData.title])
       .then(data => {
