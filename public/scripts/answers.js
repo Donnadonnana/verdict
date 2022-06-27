@@ -7,7 +7,7 @@ $(document).ready(function() {
     url: `/getoptions/${pollID}`,
     success: (data) => {
       data.forEach((option) => {
-        addOptionElement(option)
+        addOptionElement(option);
       });
       $('#user-answers').sortable();
     }
