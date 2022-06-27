@@ -95,24 +95,7 @@ app.get("/result/:poll_id", (req, res) => {
   db.query(`SELECT * FROM options WHERE poll_id = $1`, [pollID]).then((data) => {
     const options = data.rows;
     const a = [];
-    options.forEach((option) => {
-      const optionObject = {};
 
-      const title = option.title;
-      const description = option.description;
-      optionObject.title = title;
-      optionObject.description = description;
-
-      a.push(optionObject);
-    });
-    console.log('here is the option titles and descriptions');
-    console.log(a);
-
-    const n = options.length;
-
-    console.log('here is the options');
-
-    console.log(options);
 
     const optionPoints = {};
 
@@ -124,6 +107,7 @@ app.get("/result/:poll_id", (req, res) => {
 
 
     db.query(`SELECT * FROM answers WHERE poll_id = $1`, [pollID]).then((data) => {
+      const n = options.length;
 
       const allAnswers = data.rows;
       allAnswers.forEach((answer) => {
@@ -135,16 +119,46 @@ app.get("/result/:poll_id", (req, res) => {
         console.log(optionID);
       });
       const optionsIDs = Object.keys(optionPoints);
-      console.log(a);
+
       console.log('here is the option ids');
       console.log(optionsIDs);
+
+      console.log(a);
+
+
+
+      options.forEach((option) => {
+        const optionObject = {};
+
+        const title = option.title;
+        const description = option.description;
+        optionObject.title = title;
+        optionObject.description = description;
+        optionObject.id = option.id;
+        optionObject.points = optionPoints[option.id];
+
+        a.push(optionObject);
+
+      });
+      console.log('here is the option titles and descriptions');
+
+
+
+      console.log('here is the options');
+
+      a.sort(function (a, b) {
+        return b.points - a.points;
+      });
+
 
       // Get all answers where poll_id = pollID;
       // each answer has a option_id, and a rank
       // optionPoints[option_id] += n - rank;
       // res.send(optionPoints);
+
       res.render('results', {a});
     });
+
   });
 });
 
