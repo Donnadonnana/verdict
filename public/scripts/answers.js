@@ -1,4 +1,4 @@
-
+/* eslint-disable no-undef */
 $(document).ready(function() {
   const currentURL = window.location.href;
   const pollID = currentURL.split('/')[currentURL.split('/').length - 1];
@@ -14,6 +14,7 @@ $(document).ready(function() {
   });
 
 
+
   $("#confirm-btn").on('click', () => {
 
     const answers = [];
@@ -22,8 +23,23 @@ $(document).ready(function() {
       const optionId = el.getAttribute('optionID');
       answers.push(optionId);
     });
+    const currentURL = window.location.href;
+    const pollID = currentURL.split('/')[currentURL.split('/').length - 1];
 
     // TODO: send array via ajax to POST answer
+    $.ajax({
+      method: 'POST',
+      url: '/poll/answers',
+      data: { pollID, answers },
+      success: () => {
+        window.location = `http://localhost:8080/submit/`;
+
+
+      },
+      error: (err) => {
+        alert(err + 'error, please try again!');
+      }
+    });
     console.log(answers);
   });
 
