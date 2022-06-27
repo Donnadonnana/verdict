@@ -36,6 +36,8 @@ const createEmptyOption = () => {
   $('#options-container').append(inputHTML);
 };
 
+
+
 const disableCreateBtn = () => {
   $('#create_button').css('opacity', '0.5');
   $('#create_button').css('pointer-events', 'none');

@@ -62,73 +62,50 @@ module.exports = (db) => {
   router.post("/answers", (req, res) => {
     const pollID = req.body.pollID;
     const optionIDs = req.body.answers;
-    optionIDs.forEach(async(optionID, index) => {
-      const rank = index + 1;
 
-      // Insert answers and their rank in the db
-      await db.query(`INSERT INTO answers (poll_id,option_id,rank) VALUES($1,$2,$3)RETURNING *`, [pollID, optionID, rank]);
-    });
+    const mailgun = new Mailgun(formData);
 
-    res.send();
-  });
+    // Find the email for the post in the db
+    // const email = XXX;
 
+    db.query(`SELECT * FROM polls WHERE id = $1`, [pollID])
+      .then(data => {
+        const newPoll = data.rows[0];
+        const email = newPoll.email;
 
-  // 1. get number of options from poll id
-  // 2. get all answers with poll id
-  // 3. for every answer, add score based on rank of answer
-  // 4. after adding all answer ranks, we will have final ranks
-  // 5. return final array of ranks with options data (title, description)
-  router.get("/results/:poll_id", (req, res) => {
-    const pollID = req.params.poll_id;
-    // TODO: when admin checks results
-    console.log(pollID);
-    db.query(`SELECT * FROM options WHERE poll_id = $1`, [pollID]).then((data) => {
-      const options = data.rows;
-      const n = options.length;
+        const mg = mailgun.client({
+          username: 'api',
+          key: process.env.MAILGUN_API_KEY,
+        });
+        const mgAdress = process.env.MAILGUN_API_KEY_ADDRESS;
 
-      const optionPoints = {};
-
-      options.forEach((option) => {
-        optionPoints[option.id] = 0;
-      });
+        mg.messages
+          .create(mgAdress, {
+            from: `Verdict App <postmaster@${mgAdress}>`,
+            to: [email],
+            subject: "Poll was answered!",
+            text: `Someone answered your poll! please check the newest result!
+            result link: http://localhost:8080/result/${pollID}`,
+          })
+          .then(msg => console.log(msg)) // logs response data
+          .catch(err => console.log(err)); // logs any error`;
 
 
-      db.query(`SELECT * FROM answers WHERE poll_id = $1`, [pollID]).then((data) => {
 
-        const allAnswers = data.rows;
+        optionIDs.forEach(async(optionID, index) => {
+          const rank = index + 1;
 
-
-        allAnswers.forEach((answer) => {
-          const optionID = answer.option_id;
-          const rank = answer.rank;
-
-          const points = n - rank;
-          optionPoints[optionID] += points;
-
+          // Insert answers and their rank in the db
+          await db.query(`INSERT INTO answers (poll_id,option_id,rank) VALUES($1,$2,$3)RETURNING *`, [pollID, optionID, rank]);
         });
 
-
-        // Get all answers where poll_id = pollID;
-        // each answer has a option_id, and a rank
-        // optionPoints[option_id] += n - rank;
-        console.log(optionPoints);
-        // res.render('results', optionPoints);
+        res.send();
       });
 
 
 
 
-
-    });
   });
 
-
-
-
-
-
-
-
   return router;
-
 };
