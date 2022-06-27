@@ -96,7 +96,7 @@ app.get("/result/:poll_id", (req, res) => {
     const options = data.rows;
     const a = [];
     options.forEach((option) => {
-    const optionObject = {};
+      const optionObject = {};
 
       const title = option.title;
       const description = option.description;
@@ -133,19 +133,11 @@ app.get("/result/:poll_id", (req, res) => {
         const points = n - rank;
         optionPoints[optionID] += points;
         console.log(optionID);
-
-
-
-
       });
       const optionsIDs = Object.keys(optionPoints);
       console.log(a);
       console.log('here is the option ids');
       console.log(optionsIDs);
-
-
-
-
 
       // Get all answers where poll_id = pollID;
       // each answer has a option_id, and a rank
