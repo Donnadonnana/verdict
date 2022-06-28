@@ -6,13 +6,13 @@ $(document).ready(function() {
     method: "GET",
     url: `/getoptions/${pollID}`,
     success: (data) => {
-      data.forEach((option) => {
+      data.options.forEach((option) => {
         addOptionElement(option);
       });
       $('#user-answers').sortable();
+      addTitleElement(data.title);
     }
   });
-
 
 
   $("#confirm-btn").on('click', () => {
@@ -58,4 +58,16 @@ const addOptionElement = (option) => {
 
 
 };
+
+const addTitleElement = (title) => {
+  const inputHTML = `
+  <p>${title}</p>`;
+
+  $('#poll-title').append(inputHTML);
+
+
+};
+
+
+
 
