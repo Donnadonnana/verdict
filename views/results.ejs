@@ -29,18 +29,35 @@
   <%- include('partials/_header') %>
 
   <p>Results</p>
+
   <!--Empty div for results-->
   <div id="results">
+    <% for(let option of result) { %>
+    <div id="op-title">
+      <%= option.title %>
+    </div>
+    <div id="op-desc">
+      <%= option.description %>
+    </div>
+  <% } %>
+  </div>
 
 
-  <table>
+  <!-- <table>
     <tbody>
-      <% for(let option of a) { %>
-        <th> <%= option.title %> </th>
-        <tr> <%= option.description %></tr>
+      <% for(let option of result) { %>
+        <tr>
+          <%= option.title %>
+          <td>
+            <%= option.title %>
+          </td>
+          <td>
+            <%= option.description %>
+          </td>
+        </tr>
         <% } %>
     </tbody>
-  </table>
+  </table> -->
   </div>
 
 </body>
