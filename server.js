@@ -105,7 +105,7 @@ app.get("/result/:poll_id", (req, res) => {
   console.log(pollID);
   db.query(`SELECT * FROM options WHERE poll_id = $1`, [pollID]).then((data) => {
     const options = data.rows;
-    const a = [];
+    const result = [];
 
 
     const optionPoints = {};
@@ -133,8 +133,8 @@ app.get("/result/:poll_id", (req, res) => {
 
       console.log('here is the option ids');
       console.log(optionsIDs);
-      a.push(optionPoints);
-      console.log(a);
+      // result.push(optionPoints);
+      // console.log(a);
 
 
 
@@ -148,7 +148,7 @@ app.get("/result/:poll_id", (req, res) => {
         optionObject.id = option.id;
         optionObject.points = optionPoints[option.id];
 
-        a.push(optionObject);
+        result.push(optionObject);
 
       });
       console.log('here is the option titles and descriptions');
@@ -157,37 +157,37 @@ app.get("/result/:poll_id", (req, res) => {
 
       console.log('here is the options');
 
-      a.sort(function (a, b) {
+      result.sort(function (a, b) {
         return b.points - a.points;
       });
 
 
-      console.log(a);
+      console.log(result);
 
 
 
-      options.forEach((option) => {
-        const optionObject = {};
+      // options.forEach((option) => {
+      //   const optionObject = {};
 
-        const title = option.title;
-        const description = option.description;
-        optionObject.title = title;
-        optionObject.description = description;
-        optionObject.id = option.id;
-        optionObject.points = optionPoints[option.id];
+      //   const title = option.title;
+      //   const description = option.description;
+      //   optionObject.title = title;
+      //   optionObject.description = description;
+      //   optionObject.id = option.id;
+      //   optionObject.points = optionPoints[option.id];
 
-        a.push(optionObject);
+      //   result.push(optionObject);
 
-      });
-      console.log('here is the option titles and descriptions');
+      // });
+      // console.log('here is the option titles and descriptions');
 
 
 
-      console.log('here is the options');
+      // console.log('here is the options');
 
-      a.sort(function (a, b) {
-        return b.points - a.points;
-      });
+      // result.sort(function (a, b) {
+      //   return b.points - a.points;
+      // });
 
 
       // Get all answers where poll_id = pollID;
@@ -195,7 +195,10 @@ app.get("/result/:poll_id", (req, res) => {
       // optionPoints[option_id] += n - rank;
       // res.send(optionPoints);
 
-      res.render('results', {a});
+      console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+      console.log(result);
+
+      res.render('results', {result});
     });
 
   });

@@ -35,9 +35,19 @@
 
   <table>
     <tbody>
+
       <% for(let option of a) { %>
         <th> <%= option.title %> </th>
         <tr> <%= option.description %></tr>
+      <% for(let option of result) { %>
+        <tr>
+          <td>
+            <%= option.title %>
+          </td>
+          <td>
+            <%= option.description %>
+          </td>
+        </tr>
         <% } %>
     </tbody>
   </table>
