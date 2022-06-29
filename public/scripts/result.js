@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
-// $(document).ready(function() {
-//   const currentURL = window.location.href;
-//   const pollID = currentURL.split('/')[currentURL.split('/').length - 1];
+// /* eslint-disable no-undef */
+// // $(document).ready(function() {
+// //   const currentURL = window.location.href;
+// //   const pollID = currentURL.split('/')[currentURL.split('/').length - 1];
 
 //   $.ajax({
 //     method: "GET",
