@@ -30,16 +30,23 @@
 
   <p>Results</p>
 
+
+
   <!--Empty div for results-->
   <div id="results">
+
+
+    <ol id="op-title">
     <% for(let option of result) { %>
-    <div id="op-title">
-      <%= option.title %>
-    </div>
+
+     <li> <%= option.title %> </li>
+
     <div id="op-desc">
       <%= option.description %>
     </div>
+
   <% } %>
+</ol>
   </div>
 
 

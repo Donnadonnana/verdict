@@ -45,6 +45,12 @@ align-items: center;
   text-align: center;
 }
 
+.confirm-btn:hover,
+.button_style:hover {
+  opacity: 0.7;
+}
+
+
 h4 {
   font-family: 'Bungee', cursive !important;
   font-size: 30px;
@@ -53,12 +59,15 @@ h4 {
 }
 
 
+ul {
+  margin: 0;
+  padding: 0;
+}
 
 
-
-
-
-
+#poll-title {
+  margin-top: 10px;
+}
 
 
 
