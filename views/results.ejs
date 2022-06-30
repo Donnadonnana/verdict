@@ -33,38 +33,20 @@
 
 
   <!--Empty div for results-->
-  <div id="results">
-
 
     <ol id="op-title">
     <% for(let option of result) { %>
+      <div id="op-name">
 
      <li> <%= option.title %> </li>
 
-    <div id="op-desc">
-      <%= option.description %>
+      <div id="op-desc">
+        <%= option.description %>
+      </div>
     </div>
-
   <% } %>
-</ol>
-  </div>
+  </ol>
 
 
-  <!-- <table>
-    <tbody>
-      <% for(let option of result) { %>
-        <tr>
-          <%= option.title %>
-          <td>
-            <%= option.title %>
-          </td>
-          <td>
-            <%= option.description %>
-          </td>
-        </tr>
-        <% } %>
-    </tbody>
-  </table> -->
-  </div>
 
 </body>
