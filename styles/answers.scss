@@ -45,6 +45,12 @@ align-items: center;
   text-align: center;
 }
 
+.confirm-btn:hover,
+.button_style:hover {
+  opacity: 0.7;
+}
+
+
 h4 {
   font-family: 'Bungee', cursive !important;
   font-size: 30px;
@@ -53,84 +59,15 @@ h4 {
 }
 
 
+ul {
+  margin: 0;
+  padding: 0;
+}
 
 
-
-svg#cloud-animation {
-	max-width: 350px;
-	padding: 10px;
-	display: block;
-	margin: auto;
-	height: 200px;
-	position: absolute;
-	top: 50%; left: 50%;
-	margin-top: -175px;
-	margin-left: -100px;
+#poll-title {
+  margin-top: 10px;
 }
 
 
 
-svg#rocket-animation {
-	max-width: 800px;
-	padding: 10px;
-	display: block;
-	margin: auto;
-	height: 800px;
-	position: absolute;
-	top: 50%; left: 50%;
-	margin-top: -400px;
-	margin-left: -400px;
-}
-
-
-
-
-
-
-$icon-color: 			#f84462;
-$icon-border: 			#414042;
-
-.fill-color {
-	fill: $icon-color;
-}
-
-.stroke-color {
-	stroke: $icon-color;
-}
-
-.fill-grey {
-	fill: $icon-border;
-}
-.stroke-grey {
-	fill: $icon-border;
-}
-
-
-// Animation
-#rocket {
-  animation: rocket-rotate 20s linear reverse infinite;
-}
-
-.path {
-  stroke-dasharray: 20;
-  animation: dash 1s linear reverse infinite;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 80;
-  }
-}
-
-
-@keyframes rocket-rotate {
-	0%, 20% {
-		transform: rotate(85deg);
-	}
-	50% {
-		transform: rotate(30deg);
-	}
-	80%, 100% {
-		transform: rotate(-25deg);
-	}
-}
