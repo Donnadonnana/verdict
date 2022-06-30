@@ -58,8 +58,14 @@ app.get("/success/:pollID", (req, res) => {
   const templateVars = {
     pollID
   };
+  db.query('SELECT * FROM polls WHERE id = $1', [pollID]).then((data) => {
+    const polls = data.rows;
+    if (!polls.length) {
+      res.render('error');
+    }
+    res.render("success", templateVars);
 
-  res.render("success", templateVars);
+  });
 
 });
 
@@ -119,6 +125,7 @@ app.get("/result/:poll_id", (req, res) => {
     const result = [];
     if (!options.length) {
       res.render('error');
+      return;
     }
     const optionPoints = {};
 
@@ -133,6 +140,9 @@ app.get("/result/:poll_id", (req, res) => {
       const n = options.length;
 
       const allAnswers = data.rows;
+      if (!allAnswers.length) {
+        res.render('empty_result');
+      }
       allAnswers.forEach((answer) => {
         const optionID = answer.option_id;
         const rank = answer.rank;
@@ -158,20 +168,10 @@ app.get("/result/:poll_id", (req, res) => {
         result.push(optionObject);
 
       });
-      console.log('here is the option titles and descriptions');
-
-
-
-      console.log('here is the options');
 
       result.sort(function(a, b) {
         return b.points - a.points;
       });
-
-
-      console.log(result);
-
-
 
       res.render('results', {result});
     });
