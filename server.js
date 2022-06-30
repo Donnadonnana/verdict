@@ -55,25 +55,34 @@ app.get("/", (req, res) => {
 
 app.get("/success/:pollID", (req, res) => {
   const pollID = req.params.pollID;
-
-
   const templateVars = {
     pollID
   };
 
   res.render("success", templateVars);
+
 });
 
 
 // The page the user re-orders and submits
 app.get("/answer/:pollID", (req, res) => {
+  const pollID = req.params.pollID;
 
-  res.render("answers");
+  db.query('SELECT * FROM polls WHERE id = $1', [pollID]).then((data) => {
+    const polls = data.rows;
+    if (!polls.length) {
+      res.render('error');
+    }
+    res.render("answers");
+
+
+  });
 });
 
 app.get('/getoptions/:pollID', (req, res) => {
   const pollID = req.params.pollID;
   console.log(pollID);
+
   const dataResult = {};
   db.query('SELECT * FROM options WHERE poll_id = $1', [pollID]).then((data) => {
 
@@ -82,13 +91,16 @@ app.get('/getoptions/:pollID', (req, res) => {
     dataResult['options'] = options;
   }).then((data) => {
     db.query('SELECT title FROM polls WHERE id = $1', [pollID]).then((data) => {
-      console.log('this is my data',data.rows[0].title);
+
       const title = data.rows[0].title;
       dataResult['title'] = title;
       res.send(dataResult);
+
+
     });
 
   });
+
 
 });
 
@@ -101,13 +113,13 @@ app.get('/getoptions/:pollID', (req, res) => {
 app.get("/result/:poll_id", (req, res) => {
   const pollID = req.params.poll_id;
   // TODO: when admin checks results
-  console.log(`this is poll_id `);
-  console.log(pollID);
+
   db.query(`SELECT * FROM options WHERE poll_id = $1`, [pollID]).then((data) => {
     const options = data.rows;
     const result = [];
-
-
+    if (!options.length) {
+      res.render('error');
+    }
     const optionPoints = {};
 
 
@@ -131,11 +143,6 @@ app.get("/result/:poll_id", (req, res) => {
       });
       const optionsIDs = Object.keys(optionPoints);
 
-      console.log('here is the option ids');
-      console.log(optionsIDs);
-      // result.push(optionPoints);
-      // console.log(a);
-
 
 
       options.forEach((option) => {
@@ -157,7 +164,7 @@ app.get("/result/:poll_id", (req, res) => {
 
       console.log('here is the options');
 
-      result.sort(function (a, b) {
+      result.sort(function(a, b) {
         return b.points - a.points;
       });
 
@@ -165,38 +172,6 @@ app.get("/result/:poll_id", (req, res) => {
       console.log(result);
 
 
-
-      // options.forEach((option) => {
-      //   const optionObject = {};
-
-      //   const title = option.title;
-      //   const description = option.description;
-      //   optionObject.title = title;
-      //   optionObject.description = description;
-      //   optionObject.id = option.id;
-      //   optionObject.points = optionPoints[option.id];
-
-      //   result.push(optionObject);
-
-      // });
-      // console.log('here is the option titles and descriptions');
-
-
-
-      // console.log('here is the options');
-
-      // result.sort(function (a, b) {
-      //   return b.points - a.points;
-      // });
-
-
-      // Get all answers where poll_id = pollID;
-      // each answer has a option_id, and a rank
-      // optionPoints[option_id] += n - rank;
-      // res.send(optionPoints);
-
-      console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-      console.log(result);
 
       res.render('results', {result});
     });
