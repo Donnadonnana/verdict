@@ -1,5 +1,15 @@
-LHL Node Skeleton
+## Verdict - Decision Maker 
 =========
+
+Verdict is a web application that makes taking decisions easier. It allows users to create polls and share them with friends so they can decide together what will be the winning option of the poll.
+
+## Screenshots
+
+!["Homepage"] () This screenshot shows the homepage of Verdict.
+!["Create"] () This screenshot shows the poll creation page.
+!["Answers"] () This screenshot shows the page where users can answer the poll.
+!["Results"] () This screenshot shows the final results of the page once all votes have been received.
+
 
 ## Project Setup
 
