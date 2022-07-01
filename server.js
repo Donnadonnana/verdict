@@ -50,7 +50,7 @@ app.use("/poll", pollRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("homepage");
 });
 
 app.get("/success/:pollID", (req, res) => {
@@ -186,6 +186,10 @@ app.get('/answer/:pollID', (req, res) => {
 
 app.get('/submit', (req, res) => {
   res.render('confirm');
+});
+
+app.get('/create', (req, res) => {
+  res.render('index');
 });
 
 app.listen(PORT, () => {
