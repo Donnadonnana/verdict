@@ -13,7 +13,6 @@ module.exports = (db) => {
       username: 'api',
       key: process.env.MAILGUN_API_KEY,
     });
-    console.log(process.env.MAILGUN_API_KEY);
     // Create poll row, with email and title from the form on the front end
     db.query(`INSERT INTO polls (email,title) VALUES($1,$2)RETURNING *`, [requestData.email, requestData.title])
       .then(data => {
@@ -27,7 +26,6 @@ module.exports = (db) => {
 
         // TODO: send 2 links to the provided email, one for sharing with friends, one for seeing results
         const mgAdress = process.env.MAILGUN_API_KEY_ADDRESS;
-        console.log(mgAdress);
         mg.messages
           .create(mgAdress, {
             from: `Verdict App <postmaster@${mgAdress}>`,

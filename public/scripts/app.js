@@ -29,7 +29,7 @@ const createEmptyOption = () => {
   // It is generally not good practice to inject plain text html into the dom for security reasons, but since this will be a static string, it's ok for now.
   const inputHTML = `<li class="option-wrapper">
   <input class="option-title-input" placeholder="option title">
-  <input class="option-description-input" placeholder="description">
+  <input class="option-description-input" placeholder="description(optional)">
 
   <button onclick="handleDelete(this)" class="delete-btn">Delete</button>
   </li>`;
@@ -54,8 +54,6 @@ const validateForm = () => {
   const email = $('#email-text').val();
   const title = $('#title-text').val();
   const optionChildren = $('#options-container').children();
-
-  console.log($(optionChildren).children());
   let isValidInput = true;
 
   for (let i = 0; i < optionChildren.length; i++) {
@@ -99,22 +97,17 @@ const submitPoll = () => {
 
   // start an empty options array which we will populate in the following code, we want to gather all the options information to be sent in the create poll request later
   let options = [];
-
   // select all elements with the option-wrapper class name, and loop through each one
   document.querySelectorAll('.option-wrapper').forEach((option) => {
     // create an empty object to store the options information
     const optionData = {};
-
     // get the options title input value
     const titleText = option.querySelector('.option-title-input').value;
     // get the options description input value
     const descriptionText = option.querySelector('.option-description-input').value;
-
     // store the input values into the empty object, and if description doesn't exist, set it to null
     optionData.title = titleText;
     optionData.description = descriptionText || null;
-    console.log(optionData);
-
     // push the optionData we created above into the options array, this will happen on every loop of the options
     options.push(optionData);
   });

@@ -40,7 +40,6 @@ $(document).ready(function() {
         alert(err + 'error, please try again!');
       }
     });
-    console.log(answers);
   });
 
 });

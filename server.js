@@ -80,20 +80,18 @@ app.get("/answer/:pollID", (req, res) => {
       res.render('error');
     }
     res.render("answers");
-
-
   });
 });
 
 app.get('/getoptions/:pollID', (req, res) => {
   const pollID = req.params.pollID;
-  console.log(pollID);
+
 
   const dataResult = {};
   db.query('SELECT * FROM options WHERE poll_id = $1', [pollID]).then((data) => {
 
     const options = data.rows;
-    console.log('this is options!!!!',options);
+
     dataResult['options'] = options;
   }).then((data) => {
     db.query('SELECT title FROM polls WHERE id = $1', [pollID]).then((data) => {
@@ -101,13 +99,8 @@ app.get('/getoptions/:pollID', (req, res) => {
       const title = data.rows[0].title;
       dataResult['title'] = title;
       res.send(dataResult);
-
-
     });
-
   });
-
-
 });
 
 
@@ -118,8 +111,6 @@ app.get('/getoptions/:pollID', (req, res) => {
 // 5. return final array of ranks with options data (title, description)
 app.get("/result/:poll_id", (req, res) => {
   const pollID = req.params.poll_id;
-  // TODO: when admin checks results
-
   db.query(`SELECT * FROM options WHERE poll_id = $1`, [pollID]).then((data) => {
     const options = data.rows;
     const result = [];
@@ -128,17 +119,11 @@ app.get("/result/:poll_id", (req, res) => {
       return;
     }
     const optionPoints = {};
-
-
     options.forEach((option) => {
       optionPoints[option.id] = 0;
-
     });
-
-
     db.query(`SELECT * FROM answers WHERE poll_id = $1`, [pollID]).then((data) => {
       const n = options.length;
-
       const allAnswers = data.rows;
       if (!allAnswers.length) {
         res.render('empty_result');
@@ -149,12 +134,8 @@ app.get("/result/:poll_id", (req, res) => {
 
         const points = n - rank;
         optionPoints[optionID] += points;
-        console.log(optionID);
       });
       const optionsIDs = Object.keys(optionPoints);
-
-
-
       options.forEach((option) => {
         const optionObject = {};
 
@@ -164,18 +145,13 @@ app.get("/result/:poll_id", (req, res) => {
         optionObject.description = description;
         optionObject.id = option.id;
         optionObject.points = optionPoints[option.id];
-
         result.push(optionObject);
-
       });
-
       result.sort(function(a, b) {
         return b.points - a.points;
       });
-
       res.render('results', {result});
     });
-
   });
 });
 
