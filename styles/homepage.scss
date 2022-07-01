@@ -1,0 +1,40 @@
+#instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  padding-top: 70px;
+  font-size: 45px !important;
+}
+
+h2 {
+  font-size: 25px !important;
+}
+
+h3 {
+  padding-top: 10px;
+  font-size: 30px !important;
+  font-family: 'Bungee', cursive !important;
+}
+
+h4 {
+  font-size: 20px !important;
+  font-family: 'Bungee', cursive !important;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+img {
+  height: 275px;
+}
+
+
+.button_style:hover {
+  opacity: 0.7;
+}
+
+ol {
+  padding-top: 20px;
+}

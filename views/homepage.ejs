@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Create Poll</title>
+  <title>Homepage</title>
   <link rel="stylesheet"
     type="text/css" href='/styles/poll_page.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -30,35 +30,33 @@
   <%- include('partials/_header') %>
 
   <main>
+    <div id="instructions">
+      <h1>Welcome to Verdict</h1>
 
-    <h1>Create a poll</h1>
-      <p>To create a poll, please fill the form below!</p>
+      <h2>where we make decisions easy.</h2>
+      <div id="image">
+        <img src="https://media.istockphoto.com/vectors/ask-question-concept-vector-id1329213698?k=20&m=1329213698&s=612x612&w=0&h=nNNu9YpIgEsK-9BeFGGytoqKeeaGFGdDA4xGfVab9xE=">
+        <!-- <img src="https://media.istockphoto.com/vectors/puzzled-woman-choosing-between-two-buttons-vector-id1279274997?k=20&m=1279274997&s=612x612&w=0&h=3v9NzPQ3qIG8BUGm_PYhyzG9XXfp0HNVASWeGV_0rgs="> -->
+      </div>
+      <h3>How does it work?</h3>
+      <ol>
+        <li>Create your own personalised poll</li>
+        <li>Copy and send the link to your friends</li>
+        <li>Your friends will choose their favorite option</li>
+        <li>You will receive an email for the results</li>
+        <li>See which option won!</li>
+      </ol>
+
+        <h4>Click below to create your poll!</h4>
 
 
-    <!-- input here -->
-    <div id="poll-form">
-
-        <div id="user-poll">
-          <div class="alert-user" style="display:none">Error!</div>
-            <label for="email-text" id="emailInput">*Enter your email:</label>
-            <input type="email" name="email" id="email-text"placeholder='example@email.com'></input>
-            <label for="poll-title" >*Poll title:</label>
-            <input type="text" name="title" id="title-text" placeholder="eg: what you want to eat for dinner tonight?"></input>
-        </div>
+      <a href="/create"><button id="confirm-btn" class="button_style" role="button" style="margin-bottom: 5em;">
+        Start!</button></a>
     </div>
 
-        <!-- option  -->
 
-        <div id="options-title" for="poll-question-1">Options: (minimum two)</div>
 
-<!-- ol has li inside , ol = orderlist, will has number auto -->
-  <ol id="options-container">
-  </ol>
-  <div>
-      <button id="add_button" class="addButton">Add option</button>
-      <div id="create_button">
-        <button id="create-btn" class="button_style" role="button">Create</button>
-      </div>
+
 
 
 
