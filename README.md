@@ -5,21 +5,15 @@ Verdict is a web application that makes taking decisions easier. It allows users
 
 ## Screenshots
 
-!["Homepage"] () This screenshot shows the homepage of Verdict.
-!["Create"] () This screenshot shows the poll creation page.
-!["Answers"] () This screenshot shows the page where users can answer the poll.
-!["Results"] () This screenshot shows the final results of the page once all votes have been received.
+!["Homepage"] (https://github.com/Donnadonnana/verdict/blob/master/docs/homepage.png?raw=true) This screenshot shows the homepage of Verdict.
+!["Create"] (https://github.com/Donnadonnana/verdict/blob/master/docs/create_poll.png?raw=true) This screenshot shows the poll creation page.
+!["Answers"] (https://github.com/Donnadonnana/verdict/blob/master/docs/answers.png?raw=true) This screenshot shows the page where users can answer the poll.
+!["Results"] (https://github.com/Donnadonnana/verdict/blob/master/docs/results.png?raw=true) This screenshot shows the final results of the page once all votes have been received.
 
 
 ## Project Setup
 
-The following steps are only for _one_ of the group members to perform.
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
 
 
 ## Getting Started
@@ -53,4 +47,4 @@ The following steps are only for _one_ of the group members to perform.
 - PG 6.x
 
 
-Hello 
+
