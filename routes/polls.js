@@ -32,8 +32,8 @@ module.exports = (db) => {
             to: [requestData.email],
             subject: "You just made a new poll!",
             text: `${requestData.title} poll created!
-            share link : https://verdict-midterm.herokuapp.com/answer/${pollID}
-            result link: https://verdict-midterm.herokuapp.com/result/${pollID}`,
+            share link : http://localhost:8080/answer/${pollID}
+            result link: http://localhost:8080/result/${pollID}`,
           })
           .then(msg => console.log(msg)) // logs response data
           .catch(err => console.log(err)); // logs any error`;
@@ -83,7 +83,7 @@ module.exports = (db) => {
             to: [email],
             subject: "Poll was answered!",
             text: `Someone answered your poll! please check the newest result!
-            result link: https://verdict-midterm.herokuapp.com/result/${pollID}`,
+            result link: http://localhost:8080/result/${pollID}`,
           })
           .then(msg => console.log(msg)) // logs response data
           .catch(err => console.log(err)); // logs any error`;

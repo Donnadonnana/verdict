@@ -126,7 +126,7 @@ const submitPoll = () => {
     url: "/poll/create",
     data: data,
     success: (data) => {
-      window.location = `https://verdict-midterm.herokuapp.com/success/${data.pollID}`;
+      window.location = `http://localhost:8080/success/${data.pollID}`;
     }
   });
 };
