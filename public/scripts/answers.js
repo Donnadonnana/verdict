@@ -32,7 +32,7 @@ $(document).ready(function() {
       url: '/poll/answers',
       data: { pollID, answers },
       success: () => {
-        window.location = `http://localhost:8080/submit/`;
+        window.location = `/submit`;
 
 
       },
